@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import RoomList from './RoomList';
+import * as firebase from 'firebase';
+
+
+  var config = {
+    apiKey: "AIzaSyBTFpSXlW7dKj-Gw-93-AlsXSwmhifN0ws",
+    authDomain: "fire-base-react.firebaseapp.com",
+    databaseURL: "https://fire-base-react.firebaseio.com",
+    projectId: "fire-base-react",
+    storageBucket: "fire-base-react.appspot.com",
+    messagingSenderId: "911265247529"
+  };
+  firebase.initializeApp(config);
+
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+    return(
+      <RoomList />
     );
   }
 }
