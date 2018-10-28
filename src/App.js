@@ -6,12 +6,12 @@ import * as firebase from 'firebase';
 
 
   var config = {
-    apiKey: "AIzaSyBTFpSXlW7dKj-Gw-93-AlsXSwmhifN0ws",
-    authDomain: "fire-base-react.firebaseapp.com",
-    databaseURL: "https://fire-base-react.firebaseio.com",
-    projectId: "fire-base-react",
-    storageBucket: "fire-base-react.appspot.com",
-    messagingSenderId: "911265247529"
+    apiKey: "AIzaSyDlbJFWXA2OPamDzKd6Lg5sz02fsEzgbnw",
+    authDomain: "fire-base-react-669e0.firebaseapp.com",
+    databaseURL: "https://fire-base-react-669e0.firebaseio.com",
+    projectId: "fire-base-react-669e0",
+    storageBucket: "fire-base-react-669e0.appspot.com",
+    messagingSenderId: "648892805817"
   };
   firebase.initializeApp(config);
 
@@ -19,7 +19,9 @@ import * as firebase from 'firebase';
 class App extends Component {
   render() {
     return(
-      <RoomList />
+      <div className ="App">
+        <RoomList firebase={firebase} />
+      </div>
     );
   }
 }
