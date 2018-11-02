@@ -21,14 +21,9 @@ class RoomList extends Component {
 
   render(){
     return(
-      <section id="room-list">
-        <div id="first-room">
-        </div>
-        <div id="second-room">
-        </div>
-        <div id="third-room">
-        </div>
-      </section>
+      <div>
+      {this.state.rooms.map(room => room.key)}
+      </div>
     );
   }
 }
