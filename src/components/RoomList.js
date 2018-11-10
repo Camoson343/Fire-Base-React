@@ -49,7 +49,7 @@ class RoomList extends Component {
       <section>
         <h1 className="room-list">
           <div>
-          {this.state.rooms.map(room => + room.key)}
+          {this.state.rooms.map(room => room.name)}
           </div>
         </h1>
         <form onSubmit={this.handleSubmit}>
