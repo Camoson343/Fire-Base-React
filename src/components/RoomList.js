@@ -25,13 +25,13 @@ class RoomList extends Component {
     handleSubmit(event){
       let newRoomName = this.state.value;
       this.roomsRef.push({
-        rooms: newRoomName
+        name: newRoomName
       })
       event.preventDefault();
     }
 
     createRoom(newRoomName){
-      this.setState({ rooms: newRoomName })
+      this.setState({ name: newRoomName })
     }
 
 
