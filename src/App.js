@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import RoomList from './components/RoomList';
+import MessageList from './components/MessageList';
 import * as firebase from 'firebase';
 
 
@@ -17,10 +18,36 @@ import * as firebase from 'firebase';
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      room: ''
+    }
+  }
+
+  activeRoom(){
+
+  }
+
+  handleChange(e){
+    this.setState({room: e.target.value})
+  }
+
   render() {
     return(
       <div className ="App">
-        <RoomList firebase={firebase} />
+      <header className="App-header">
+      Firebase Chat
+      </header>
+        <div className = "room-list">
+          <RoomList
+          firebase={firebase}
+          handleChange={(e) => this.handleChange(e)} 
+          />
+        </div>
+        <div className= "message-list">
+          <MessageList firebase={firebase} />
+        </div>
       </div>
     );
   }

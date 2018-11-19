@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../RoomList.css';
 
 
 class RoomList extends Component {
@@ -23,11 +24,11 @@ class RoomList extends Component {
     }
 
     handleSubmit(event){
+      event.preventDefault();
       let newRoomName = this.state.value;
       this.roomsRef.push({
         name: newRoomName
       })
-      event.preventDefault();
     }
 
     createRoom(newRoomName){
@@ -46,19 +47,24 @@ class RoomList extends Component {
 
   render(){
     return(
-      <section>
-        <h1 className="room-list">
-          <div>
-          {this.state.rooms.map(room => room.name)}
-          </div>
-        </h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-          Room Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} className="room-name" />
-          </label>
-            <input type="submit" value="submit" />
-        </form>
+      <section id="rooms" className="rounded">
+      <form onSubmit={this.handleSubmit}>
+        <label className="room-text">
+          <input type="text" value={this.state.value} onChange={this.handleChange} className="room-name" placeholder="add new room" />
+        </label>
+          <input className="btn btn-secondary" type="submit" value="submit" />
+      </form>
+        <div className="add-rooms">
+          <table className="table table-hover">
+            <tbody id="room-items">
+            {this.state.rooms.map(room =>
+              <tr className="rooms-made" key={room.key}>
+                <td>{room.name}</td>
+              </tr>
+            )}
+            </tbody>
+          </table>
+        </div>
       </section>
     );
   }
