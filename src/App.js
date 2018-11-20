@@ -25,12 +25,8 @@ class App extends Component {
     }
   }
 
-  activeRoom(){
-
-  }
-
-  handleChange(e){
-    this.setState({room: e.target.value})
+  chooseRoom(e){
+    alert("room chosen")
   }
 
   render() {
@@ -42,7 +38,7 @@ class App extends Component {
         <div className = "room-list">
           <RoomList
           firebase={firebase}
-          handleChange={(e) => this.handleChange(e)} 
+          onClick={(e) => this.chooseRoom(e)}
           />
         </div>
         <div className= "message-list">

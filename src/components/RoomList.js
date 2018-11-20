@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../RoomList.css';
 
 
+
 class RoomList extends Component {
   constructor(props){
     super(props);
@@ -18,6 +19,10 @@ class RoomList extends Component {
 
 
   }
+
+    isChosen(event){
+      alert("this is chosen:" + this.state.name )
+    }
 
     handleChange(event){
       this.setState({ value: event.target.value });
@@ -59,7 +64,7 @@ class RoomList extends Component {
             <tbody id="room-items">
             {this.state.rooms.map(room =>
               <tr className="rooms-made" key={room.key}>
-                <td>{room.name}</td>
+                <td onClick={(e) => this.isChosen(e)}>{room.name}</td>
               </tr>
             )}
             </tbody>
