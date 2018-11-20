@@ -21,12 +21,14 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      room: ''
+      currentRoom: "",
     }
+    this.currentRoom = this.currentRoom.bind(this);
   }
 
-  chooseRoom(e){
-    alert("room chosen")
+  currentRoom(room){
+    this.setState({currentRoom: room });
+    alert(room);
   }
 
   render() {
@@ -38,7 +40,7 @@ class App extends Component {
         <div className = "room-list">
           <RoomList
           firebase={firebase}
-          onClick={(e) => this.chooseRoom(e)}
+          currentRoom={this.currentRoom}
           />
         </div>
         <div className= "message-list">

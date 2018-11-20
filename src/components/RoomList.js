@@ -20,10 +20,6 @@ class RoomList extends Component {
 
   }
 
-    isChosen(event){
-      alert("this is chosen:" + this.state.name )
-    }
-
     handleChange(event){
       this.setState({ value: event.target.value });
     }
@@ -64,7 +60,7 @@ class RoomList extends Component {
             <tbody id="room-items">
             {this.state.rooms.map(room =>
               <tr className="rooms-made" key={room.key}>
-                <td onClick={(e) => this.isChosen(e)}>{room.name}</td>
+                <td>{room.name}</td>
               </tr>
             )}
             </tbody>
