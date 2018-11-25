@@ -49,23 +49,26 @@ class RoomList extends Component {
   render(){
     return(
       <section id="rooms" className="rounded">
+
       <form onSubmit={this.handleSubmit}>
         <label className="room-text">
           <input type="text" value={this.state.value} onChange={this.handleChange} className="room-name" placeholder="add new room" />
         </label>
           <input className="btn btn-secondary" type="submit" value="submit" />
       </form>
+
         <div className="add-rooms">
           <table className="table table-hover">
             <tbody id="room-items">
             {this.state.rooms.map(room =>
-              <tr className="rooms-made" key={room.key}>
+              <tr className="rooms-made" key={room.key} onClick={() => this.props.setCurrentRoom(room)}>
                 <td>{room.name}</td>
               </tr>
             )}
             </tbody>
           </table>
         </div>
+
       </section>
     );
   }

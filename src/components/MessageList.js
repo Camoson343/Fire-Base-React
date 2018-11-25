@@ -19,10 +19,12 @@ class MessageList extends Component {
       });
   }
 
+
   render(){
     return(
       <section className="message-content">
-        <div>{this.state.messages.map(message =>
+        <h1>{this.props.currentRoom.name}</h1>
+        <div>{this.state.messages.filter(message => message.roomID === this.props.currentRoom.key).map(message =>
           <div className="room-content" key={message.key}>
             {message.content}
           </div>

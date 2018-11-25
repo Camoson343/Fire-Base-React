@@ -21,14 +21,15 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      currentRoom: "",
+      currentRoom: '',
     }
-    this.currentRoom = this.currentRoom.bind(this);
+    this.setCurrentRoom = this.setCurrentRoom.bind(this);
   }
 
-  currentRoom(room){
+  setCurrentRoom(room){
+    console.log("room", room)
     this.setState({currentRoom: room });
-    alert(room);
+    console.log("this room:", this.state.currentRoom)
   }
 
   render() {
@@ -39,12 +40,16 @@ class App extends Component {
       </header>
         <div className = "room-list">
           <RoomList
-          firebase={firebase}
-          currentRoom={this.currentRoom}
+            firebase={firebase}
+            currentRoom={this.state.currentRoom}
+            setCurrentRoom={this.setCurrentRoom}
           />
         </div>
         <div className= "message-list">
-          <MessageList firebase={firebase} />
+          <MessageList
+            setCurrentRoom={this.setCurrentRoom}
+            currentRoom={this.state.currentRoom}
+            firebase={firebase} />
         </div>
       </div>
     );
