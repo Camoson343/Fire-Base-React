@@ -47,7 +47,7 @@ class App extends Component {
           <User
             firebase={firebase}
             setUser={this.setUser}
-            user={this.user}
+            user={this.state.user}
           />
         </div>
         <div className = "room-list">
