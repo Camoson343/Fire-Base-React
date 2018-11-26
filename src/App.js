@@ -55,6 +55,7 @@ class App extends Component {
             firebase={firebase}
             currentRoom={this.state.currentRoom}
             setCurrentRoom={this.setCurrentRoom}
+            user={this.state.user}
           />
         </div>
         <div className= "message-list">
@@ -62,6 +63,7 @@ class App extends Component {
             setCurrentRoom={this.setCurrentRoom}
             currentRoom={this.state.currentRoom}
             firebase={firebase}
+            user={this.state.user}
             />
         </div>
       </div>
