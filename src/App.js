@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import User from './components/User';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
 import * as firebase from 'firebase';
@@ -22,14 +23,18 @@ class App extends Component {
     super(props);
     this.state={
       currentRoom: '',
+      user: ''
     }
     this.setCurrentRoom = this.setCurrentRoom.bind(this);
+    this.setUser = this.setUser.bind(this);
   }
 
   setCurrentRoom(room){
-    console.log("room", room)
     this.setState({currentRoom: room });
-    console.log("this room:", this.state.currentRoom)
+  }
+
+  setUser(user){
+    this.setState({user: user });
   }
 
   render() {
@@ -38,6 +43,13 @@ class App extends Component {
       <header className="App-header">
       Firebase Chat
       </header>
+        <div className="user">
+          <User
+            firebase={firebase}
+            setUser={this.setUser}
+            user={this.user}
+          />
+        </div>
         <div className = "room-list">
           <RoomList
             firebase={firebase}
@@ -49,7 +61,8 @@ class App extends Component {
           <MessageList
             setCurrentRoom={this.setCurrentRoom}
             currentRoom={this.state.currentRoom}
-            firebase={firebase} />
+            firebase={firebase}
+            />
         </div>
       </div>
     );
