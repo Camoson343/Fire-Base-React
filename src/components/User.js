@@ -23,14 +23,19 @@ class User extends Component{
   }
 
   signOut(){
-    this.props.firebase.auth().signOut();
+    this.props.firebase.auth().signOut().then(() => {
+      this.props.setUser('');
+    });
   }
 
   render(){
     return(
       <section className="user-info">
-        <div className="display-name">{this.props.user.displayName}</div>
+        <div className="display-name">
+        <h1>{this.props.user ? this.props.user.displayName: ''}</h1>
+        </div>
         <button className="sign-in" onClick={this.signIn}>Sign In</button>
+        <button className="sign-out" onClick={this.signOut}>Sign Out</button>
       </section>
     )
   }
