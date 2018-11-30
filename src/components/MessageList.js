@@ -34,6 +34,7 @@ class MessageList extends Component {
       sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
       username: this.props.user ? this.props.user.displayName: ''
     });
+    this.setState({newMessage: ''});
   }
 
   render(){
@@ -51,7 +52,7 @@ class MessageList extends Component {
          </div>
          <form className="new-messages" onSubmit={this.createMessage}>
           <label className="message-text">
-            <input type="textbox" onChange={this.handleChange} className="message-content" placeholder="say something" />
+            <input type="textbox" value={this.state.newMessage} onChange={this.handleChange} className="message-content" placeholder="say something" />
           </label>
           <input className="btn btn-secondary" type="submit" value="submit" />
          </form>
